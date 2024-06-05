@@ -6,13 +6,13 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-const cloudinary = require("cloudinary").v2;
+// const cloudinary = require("cloudinary").v2;
 
-cloudinary.config({ 
-    cloud_name: 'dqxvndtoy', 
-    api_key: '168574967552612', 
-    api_secret: '3oc-CwNqOO-C6Ocs-c25-JgoxR0' 
-  });
+// cloudinary.config({ 
+//     cloud_name: 'dqxvndtoy', 
+//     api_key: '168574967552612', 
+//     api_secret: '3oc-CwNqOO-C6Ocs-c25-JgoxR0' 
+//   });
 
 
 exports.signUp = async (req, res) => {

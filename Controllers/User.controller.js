@@ -1,6 +1,6 @@
 const CivilianModel = require("./../Models/User.model")
 const bcrypt = require("bcryptjs");
-
+const jwt = require("jsonwebtoken");
 
 
 exports.registerCivilian = async (req, res) => {
@@ -136,16 +136,15 @@ exports.userProfile = async (req,res) => {
       
       
                 const response = {
-                    mobileNo : detailsOfUser.mobileNo,
+                    mobileNo : detailsOfUser.mobileno,
                     Name : detailsOfUser.Name,
                     email: detailsOfUser.email,
-                    userName : detailsOfAdmin.userName,
-                    image : detailsOfAdmin.image
+                    address: detailsOfUser.address
                 }
             
-                res.json ({message : "Admin Data Found.." , result : response}).status(200);
+                res.json ({message : "user Data Found.." , result : response}).status(200);
             } else {
-                res.json({message : "No Admin Found"}).status(404)
+                res.json({message : "No user Found"}).status(404)
             }
       
         } catch (error) {
