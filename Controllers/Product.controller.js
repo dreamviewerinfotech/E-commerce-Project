@@ -28,3 +28,26 @@ exports.addProduct = async (req, res) => {
         }
     }
 };
+exports.allProducts = async (req, res) => {
+    try {
+        const Products = await ProductModel.find();
+
+        if (Products.length === 0) {
+            return res.status(404).json({ message: "No Products not found" });
+        }
+
+        const allProduct = Products.map((product) => {
+            return {
+                productName : product.productName,
+                description : product.description,
+                _id: product._id,
+               productAmount : product.amount
+            };
+        });
+
+        res.json({ message: "Products found", result: allProduct }).status(200);
+    } catch (error) {
+        console.error('Error occurred in Products get', error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+}
