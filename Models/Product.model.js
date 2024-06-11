@@ -18,6 +18,12 @@ const ProductSchema = new mongoose.Schema({
     amount: {
         type: Number,
         required: true,
+    },
+    category : {
+        type: String,
+    },
+    image : {
+        type: String
     }
 });
 

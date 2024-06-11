@@ -15,6 +15,7 @@ const connectToDatabase = require("./Configs/db");
 const AdminRouter = require("./Routers/Admin.route");
 const UserRouter = require("./Routers/User.route");
 const ProductRouter = require("./Routers/Product,route");
+const CategoryRouter = require("./Routers/Category.route")
 
 const app = express();
 const port = process.env.PORT || 2023;
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 app.use("/E-Commerce/Admin" , AdminRouter);
 app.use("/E-Commerce/User" , UserRouter);
 app.use("/E-Commerce/Product", ProductRouter);
+app.use("/E-Commerce/Category",CategoryRouter);
 
 server.listen(port, async () => {
     try {

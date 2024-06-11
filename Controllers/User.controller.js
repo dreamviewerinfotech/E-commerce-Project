@@ -3,6 +3,16 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({ 
+    cloud_name: 'dqxvndtoy', 
+    api_key: '168574967552612', 
+    api_secret: '3oc-CwNqOO-C6Ocs-c25-JgoxR0' 
+  });
+
+
+
 exports.registerCivilian = async (req, res) => {
  
     try {
@@ -153,3 +163,18 @@ exports.userProfile = async (req,res) => {
         }
       }
       
+exports.allUsers = async (req,res) => {
+        try {
+          
+          const allUsers = await CivilianModel.find();
+      
+          if (allUsers) {
+             res.json ({message : "all user's data listed below..." , users : allUsers}).status(201);
+          } else if (!allUsers) {
+            res.json ({message : "No Data found..."}).status(404);
+          }
+        }
+        catch (error) {
+          res.status(500).json({ error: error.message });
+        }
+      }
